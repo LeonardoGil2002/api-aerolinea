@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface IAvionRepository extends JpaRepository<Avion,Long> {
 
+    //Consulta para traer todos los aviones con estado en "Fuera de servicio"
     @Query("SELECT av FROM Avion av WHERE av.estado_Av!='Fuera de servicio'")
     List<Avion> findAllNoFueraDeServicio();
 

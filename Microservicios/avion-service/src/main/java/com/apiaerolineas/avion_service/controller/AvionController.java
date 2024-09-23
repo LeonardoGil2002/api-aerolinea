@@ -1,5 +1,6 @@
 package com.apiaerolineas.avion_service.controller;
 
+import com.apiaerolineas.avion_service.dto.AvionDTO;
 import com.apiaerolineas.avion_service.entity.Avion;
 import com.apiaerolineas.avion_service.service.IAvionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,12 @@ public class AvionController {
     private IAvionService avSer;
 
     @GetMapping("/")
-    public List<Avion> readAviones(){
+    public List<AvionDTO> readAviones(){
         return avSer.readAviones();
     }
 
     @GetMapping("/{id}")
-    public Avion findAvion(@PathVariable Long id){
+    public AvionDTO findAvion(@PathVariable Long id){
         return avSer.findAvion(id);
     }
 
@@ -29,14 +30,14 @@ public class AvionController {
         return avSer.createAvion(av);
     }
 
-    @DeleteMapping("/baja/{id}")
-    public String deleteAvion(@PathVariable Long id){
-        return avSer.deleteAvion(id);
-    }
-
     @PutMapping("/modificacion/{id}")
     public String updateAvion(@RequestBody Avion av, @PathVariable Long id){
         return avSer.updateAvion(av, id);
+    }
+
+    @DeleteMapping("/baja/{id}")
+    public String deleteAvion(@PathVariable Long id){
+        return avSer.deleteAvion(id);
     }
 
 }

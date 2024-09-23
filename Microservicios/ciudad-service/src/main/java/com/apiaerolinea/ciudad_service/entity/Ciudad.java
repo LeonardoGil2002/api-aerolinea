@@ -1,4 +1,4 @@
-package com.apiaerolineas.avion_service.entity;
+package com.apiaerolinea.ciudad_service.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,19 +9,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 @Entity
-public class Avion {
+@AllArgsConstructor @NoArgsConstructor
+@Setter @Getter
+public class Ciudad {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Av;
+    private Long id_Ciu;
 
-    private Long id_Mo_Av;
-    private Long id_Ti_Av;
-    private Integer capacidadTotal_Av;
-    private String estado_Av;
+    private Long id_Pa_Ciu;
+    private String nombre_Ciu;
+    private Boolean estado_Ciu;
 
 }
